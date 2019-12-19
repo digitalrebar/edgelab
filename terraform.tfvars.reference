@@ -1,0 +1,9 @@
+# values added by manager.sh script and will be auto-regenerated
+edgelab_label    = "edgelab"
+edgelab_password = "r0cketsk8ts"
+edgelab_region   = "us-central"
+edgelab_image    = "linode/centos7"
+edgelab_type     = "g6-standard-1"
+edgelab_count		= "3"
+linode_token     = "!! token_goes_here !!"
+cluster_prefix   = "drp"
