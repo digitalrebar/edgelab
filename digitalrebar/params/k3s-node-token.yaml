@@ -1,0 +1,13 @@
+---
+Name: "k3s/node-token"
+Description: "k3s token required to join the cluster"
+Documentation: |
+  Param is set (output) by the leader during cluster building process
+  HAS NO DEFAULT: param is used as a timing gate between the Leader and Workers
+Secure: true
+Schema:
+  type: "string"
+Meta:
+  color: "blue"
+  icon: "key"
+  title: "Community Content Copyright RackN 2019"

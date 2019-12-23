@@ -2,3 +2,6 @@
 *.tfstate.backup
 *.tfvars
 .terraform
+
+digitalrebar/edgelab.yaml
+digitalrebar/digitalrebar.yaml

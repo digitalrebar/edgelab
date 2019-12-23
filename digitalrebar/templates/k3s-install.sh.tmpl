@@ -1,0 +1,140 @@
+#!/usr/bin/env bash
+# k3s part of Kubernetes Rebar Integrated Boot (KRIB) Kubeadm Installer
+# Copyright RackN 2019
+set -e
+
+echo "starting k3s install"
+# Get access and who we are.
+{{ template "setup.tmpl" .}}
+
+drpcli machines meta set $RS_UUID key color to yellow
+drpcli machines meta set $RS_UUID key icon to ship
+
+{{template "cluster-shared.tmpl" .}}
+
+# Fix hostname lookup
+echo "{{.Machine.Address}} $(hostname -s) $(hostname)" >> /etc/hosts
+
+echo "Download k3s"
+
+TMP_DIR=/tmp/k3s-tmp
+INSTALL_DIR=/usr/bin
+SYSTEMD_DIR="/etc/systemd/system"
+BINARIES="$INSTALL_DIR/k3s"
+
+if ! which k3s ; then
+  if $CLUSTER_I_AM_LEADER; then
+    K3S_URL="https://github.com/rancher/k3s/releases"
+    # TODO - figure out arch
+    ARCH=""
+    K3S_VERSION=`curl -w "%{url_effective}" -I -L -s -S ${K3S_URL}/latest -o /dev/null | sed -e 's|.*/||'`
+    echo "Download k3s ${K3S_VERSION} from ${K3S_URL}/download/${K3S_VERSION}/k3s${ARCH} to $BINARIES"
+    download -L --remote-name-all "${K3S_URL}/download/${K3S_VERSION}/k3s" -o $BINARIES
+    # TODO - checksum check
+    drpcli files upload "$BINARIES" as "k3s/$BINARIES"
+  else
+    echo "Not the leader - waiting for k3s/node-token to be defined"
+    drpcli machines meta set $RS_UUID key color to grey
+    wait_for_variable "k3s/node-token"
+    drpcli machines meta set $RS_UUID key color to yellow
+    echo "download binaries from DRP k3s/$BINARIES"
+    drpcli files download "k3s/$BINARIES"
+  fi
+  if [ -f $BINARIES ] ; then
+    chmod +x $BINARIES
+  else
+    echo "$BINARIES not installed on system"
+    exit 1
+  fi
+else
+  echo "found $BINARIES binary, moving on..."
+fi
+
+echo "Installing k3s version: $(k3s -v)"
+
+if $CLUSTER_I_AM_LEADER ; then
+
+  echo "I am leader - run k3s server"
+
+  EXECSTART="${BINARIES} server --bind-address={{ .Machine.Address }} --https-listen-port={{ .Param "k3s/api-port" }}"
+  SYSTEMD_TYPE="notify"
+
+  drpcli machines meta set $RS_UUID key icon to anchor
+
+else
+
+  echo "I am a worker - run k3s agent"
+
+  wait_for_variable "k3s/node-token"
+  # we need to get the decoded version
+  TOKEN=$(drpcli -T $PROFILE_TOKEN profiles get $CLUSTER_PROFILE param k3s/node-token --decode)
+
+  echo "Running Agent: join $TOKEN"
+  EXECSTART="${BINARIES} agent --token $TOKEN"
+  SYSTEMD_TYPE="exec"
+
+  # Set machine icon and color for KRIB cluster building
+  drpcli machines meta set $RS_UUID key icon to ship
+
+fi
+
+MODPROBE=$(which modprobe)
+
+## Build Systemd environment vars
+tee /etc/systemd/system/k3s.service.env >/dev/null << EOF
+K3S_URL=https://{{ .Machine.Address }}:{{ .Param "k3s/api-port" }}
+EOF
+
+## Build Systemd service
+tee /etc/systemd/system/k3s.service >/dev/null << EOF
+[Unit]
+Description=K3s - Lightweight Kubernetes
+Documentation=https://k3s.io
+After=network-online.target
+
+[Service]
+Type=${SYSTEMD_TYPE}
+EnvironmentFile=/etc/systemd/system/k3s.service.env
+ExecStartPre=${MODPROBE} br_netfilter
+ExecStartPre=${MODPROBE} overlay
+ExecStart=${EXECSTART}
+KillMode=process
+Delegate=yes
+LimitNOFILE=infinity
+LimitNPROC=infinity
+LimitCORE=infinity
+TasksMax=infinity
+TimeoutStartSec=0
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+systemctl daemon-reload && systemctl start k3s
+sleep 15
+echo "ZEHICLE $(k3s kubectl get nodes)"
+
+if $CLUSTER_I_AM_LEADER; then
+  # need more delay for leader
+  sleep 15
+  echo "verify install"
+  k3s kubectl get nodes
+  # TODO ADD CHECK (loop to eliminate sleep)
+  echo "Recording cluster admin config ..."
+  drpcli -T $PROFILE_TOKEN profiles add $CLUSTER_PROFILE param k3s/admin-config to - < /etc/rancher/k3s/k3s.yaml
+  if [[ -f /var/lib/rancher/k3s/server/node-token ]] ; then
+    # collect the cluster bootstrap token, then store it on the Param
+    echo "Recording cluster token ... (releases waiting workers)"
+    TOKEN=$(cat /var/lib/rancher/k3s/server/node-token)
+    drpcli -T $PROFILE_TOKEN profiles add $CLUSTER_PROFILE param k3s/node-token to "$TOKEN"
+  else
+    echo "halting, could not find /var/lib/rancher/k3s/server/node-token"
+    exit 1
+  fi
+fi
+
+drpcli machines meta set $RS_UUID key color to green
+echo "Finished k3s install successfully"
+exit 0

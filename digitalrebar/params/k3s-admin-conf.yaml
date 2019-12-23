@@ -1,0 +1,12 @@
+---
+Name: "k3s/admin-conf"
+Description: "Admin config file"
+Documentation: |
+  Param is set (output) by the cluster building process
+Secure: true
+Schema:
+  type: object
+Meta:
+  color: "blue"
+  icon: "ship"
+  title: "Community Content Copyright RackN 2019"

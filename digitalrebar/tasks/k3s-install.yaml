@@ -1,0 +1,23 @@
+---
+Description: "A task to install k3s"
+Name: "k3s-install"
+Documentation: |
+  Sets Param: krib/cluster-join, krib/cluster-admin-conf
+  Configure K3s using built-in commands
+  This uses the Digital Rebar Cluster pattern so krib/cluster-profile must be set
+
+  Server is setup to also be an agent - all machines have workload
+RequiredParams:
+  - cluster/profile
+  - cluster/leaders
+  - k3s/api-port
+Templates:
+  - ID: "k3s-install.sh.tmpl"
+    Name: "Config K3s"
+    Path: ""
+Meta:
+  icon: "ship"
+  color: "blue"
+  title: "Community Content"
+  feature-flags: "sane-exit-codes"
+  copyright: "RackN 2019"

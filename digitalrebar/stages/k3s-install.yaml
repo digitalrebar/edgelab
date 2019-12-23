@@ -1,0 +1,16 @@
+---
+Name: "k3s-install"
+Description: "K3s cluster master and nodes"
+Documentation: |
+  Installs k3s
+RunnerWait: true
+Tasks:
+  - "setup-cluster"
+  - "containerd-install"
+  - "k3s-install"
+Meta:
+  icon: "ship"
+  color: "yellow"
+  title: "Community Content"
+  copyright: "RackN 2019"
+  

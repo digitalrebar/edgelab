@@ -1,0 +1,14 @@
+---
+Name: "k3s/api-port"
+Description: "API bindPort for Cluster (default 6443)"
+Documentation: |
+  The API bindPort number for the k3s cluster .
+  Defaults to '6443'.
+
+Schema:
+  type: "number"
+  default: 6443
+Meta:
+  color: "blue"
+  icon: "ship"
+  title: "Community Content"
