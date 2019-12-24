@@ -9,7 +9,8 @@ echo "starting containerd v{{.Param "containerd/version"}} install"
 drpcli machines meta set $RS_UUID key color to yellow
 drpcli machines meta set $RS_UUID key icon to docker
 
-{{template "cluster-shared.tmpl" .}}
+{{ template "cluster-shared.tmpl" .}}
+{{ template "download-tools.tmpl" .}}
 
 # TODO - figure out arch
 ARCH="amd64"
@@ -17,12 +18,12 @@ BINARIES="cri-containerd-{{.Param "containerd/version"}}.linux-${ARCH}.tar.gz"
 
 if [[ ! -f $BINARIES ]] ; then
   if $CLUSTER_I_AM_LEADER; then
-    if [[ drpcli files exists "k3s/$BINARIES" ]]; then
+    if drpcli files exists "k3s/$BINARIES"; then
       echo "Found in DRP files/k3s - downloading from there"
-      drpcli files download "k3s/$BINARIES"
+      drpcli files download "k3s/$BINARIES" > "$BINARIES"
     else
       echo "Internet Download containerd v{{.Param "containerd/version"}} to $BINARIES"
-      curl -L https://storage.googleapis.com/cri-containerd-release/$BINARIES -o $BINARIES
+      download -L --remote-name-all https://storage.googleapis.com/cri-containerd-release/$BINARIES -o $BINARIES
       CHECK=$(sha256sum $BINARIES)
       SHA256=$(curl -L https://storage.googleapis.com/cri-containerd-release/$BINARIES.sha256)
       if [[ "$CHECK" == "$SHA256  $BINARIES" ]] ; then
@@ -32,13 +33,14 @@ if [[ ! -f $BINARIES ]] ; then
         echo "checksum does not match! computed $CHECK vs download $SHA256"
         exit 1
       fi
+    fi
   else    
     echo "Not the leader - waiting for k3s/node-token to be defined"
     drpcli machines meta set $RS_UUID key color to grey
-    wait_for_variable "k3s/node-token"
+    cluster_wait_for_variable "k3s/node-token"
     drpcli machines meta set $RS_UUID key color to yellow
-    echo "download binaries from DRP k3s/$BINARIES"
-    drpcli files download "k3s/$BINARIES"
+    echo "Download binaries from DRP k3s/$BINARIES"
+    drpcli files download "k3s/$BINARIES" > $BINARIES
   fi
   echo "untaring $BINARIES"
   tar --no-overwrite-dir -C / -xzf $BINARIES
@@ -47,7 +49,7 @@ else
 fi
 
 ## Override the default log level if not info
-{{ $llevel := .Param "containerd/loglevel" }} {{ if not eq "info" $llevel }}
+{{ $llevel := .Param "containerd/loglevel" }} {{ if ne $llevel "info" }}
 echo "Creating /etc/systemd/system/containerd.service.d/override.conf file"
 mkdir -p /etc/systemd/system/containerd.service.d
 cat << EOF > /etc/systemd/system/containerd.service.d/override.conf

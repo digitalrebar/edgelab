@@ -7,6 +7,10 @@ Documentation: |
   This uses the Digital Rebar Cluster pattern so krib/cluster-profile must be set
 
   Server is setup to also be an agent - all machines have workload
+ExtraClaims:
+  - scope: "files"
+    action: "post,get"
+    specific: "*"
 RequiredParams:
   - cluster/profile
   - cluster/leaders

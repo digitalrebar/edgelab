@@ -3,6 +3,11 @@ Name: "k3s/admin-conf"
 Description: "Admin config file"
 Documentation: |
   Param is set (output) by the cluster building process
+
+  If your cluster is using the default `cluster01` then tou can retrieve the `admin.conf` file using:
+  `drpcli profiles get cluster01 param  k3s/admin-conf --decode > admin.conf`
+
+  Note: this is stored as a secure object so the decode is required
 Secure: true
 Schema:
   type: object

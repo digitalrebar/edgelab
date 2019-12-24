@@ -4,6 +4,10 @@ Description: "A task to install containerd"
 Name: "containerd-install"
 Documentation: |
   Installs containerd using O/S packages
+ExtraClaims:
+  - scope: "files"
+    action: "post,get"
+    specific: "*"
 RequiredParams:
   - cluster/profile
   - cluster/leaders

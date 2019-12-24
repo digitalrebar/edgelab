@@ -5,6 +5,7 @@ Documentation: |
   Uses the task-library cluster building components
 Stages:
   - "cluster-setup"
+  - "k3s-install"
 Meta:
   color: "yellow"
   icon: "ship"

@@ -5,7 +5,6 @@ Documentation: |
   Installs k3s
 RunnerWait: true
 Tasks:
-  - "setup-cluster"
   - "containerd-install"
   - "k3s-install"
 Meta:
