@@ -62,9 +62,9 @@ if $CLUSTER_I_AM_LEADER ; then
 
   echo "I am leader - run k3s server"
 
+  K3S_URL=https://{{ .Machine.Address }}:{{ .Param "k3s/api-port" }}
   EXECSTART="${BINARIES} server --bind-address={{ .Machine.Address }} --https-listen-port={{ .Param "k3s/api-port" }}"
   SYSTEMD_TYPE="notify"
-  K3S_URL=https://{{ .Machine.Address }}:{{ .Param "k3s/api-port" }}
 
   drpcli machines meta set $RS_UUID key icon to anchor
 
@@ -73,14 +73,15 @@ else
   echo "I am a worker - run k3s agent"
 
   cluster_wait_for_variable "k3s/node-token"
+
   # we need to get the decoded version
-  TOKEN=$(drpcli -T $PROFILE_TOKEN profiles get $CLUSTER_PROFILE param k3s/node-token --decode)
+  K3S_TOKEN=$(drpcli -T $PROFILE_TOKEN profiles get $CLUSTER_PROFILE param k3s/node-token --decode)
   ADMIN_CONFIG=$(drpcli -T $PROFILE_TOKEN profiles get $CLUSTER_PROFILE param k3s/admin-conf --decode)
 
   echo "Running Agent: join with k3s/node-token value"
-  EXECSTART="${BINARIES} agent --token $TOKEN"
-  SYSTEMD_TYPE="exec"
   K3S_URL=$(jq -r '.clusters[0].cluster.server' <<< "$ADMIN_CONFIG")
+  EXECSTART="${BINARIES} agent --server ${K3S_URL} --token ${K3S_TOKEN}"
+  SYSTEMD_TYPE="exec"
   # Set machine icon and color for KRIB cluster building
   drpcli machines meta set $RS_UUID key icon to ship
 
@@ -92,6 +93,7 @@ MODPROBE=$(which modprobe)
 echo "Attaching to K3s at $K3S_URL"
 tee /etc/systemd/system/k3s.service.env >/dev/null << EOF
 K3S_URL=${K3S_URL}
+K3S_TOKEN=${K3S_TOKEN}
 EOF
 
 ## Build Systemd service
@@ -123,25 +125,23 @@ EOF
 
 systemctl daemon-reload && systemctl start k3s
 
-sleep 5
-while [[ "$(k3s kubectl get nodes -o json | jq '.items | length')" == "0" ]] ; do
-  sleep 1
-  echo "waiting for cluster to start"
-done
-
-echo "Verify install: k3s kubectl MUST succeed"
-k3s kubectl get nodes
 if $CLUSTER_I_AM_LEADER; then
   # need more delay for leader
-  sleep 5
+  sleep 10
+  while [[ "$(k3s kubectl get nodes -o json | jq '.items | length')" == "0" ]] ; do
+    sleep 1
+    echo "waiting for cluster to start"
+  done
+  echo "Verify install: k3s kubectl MUST succeed"
+  k3s kubectl get nodes
   # TODO ADD CHECK (loop to eliminate sleep)
   echo "Recording cluster admin config ..."
   drpcli -T $PROFILE_TOKEN profiles add $CLUSTER_PROFILE param k3s/admin-conf to - < /etc/rancher/k3s/k3s.yaml
   if [[ -f /var/lib/rancher/k3s/server/node-token ]] ; then
     # collect the cluster bootstrap token, then store it on the Param
     echo "Recording cluster token ... (releases waiting workers)"
-    TOKEN=$(cat /var/lib/rancher/k3s/server/node-token)
-    drpcli -T $PROFILE_TOKEN profiles add $CLUSTER_PROFILE param k3s/node-token to "$TOKEN"
+    K3S_TOKEN=$(cat /var/lib/rancher/k3s/server/node-token)
+    drpcli -T $PROFILE_TOKEN profiles add $CLUSTER_PROFILE param k3s/node-token to "$K3S_TOKEN"
   else
     echo "halting, could not find /var/lib/rancher/k3s/server/node-token"
     exit 1
