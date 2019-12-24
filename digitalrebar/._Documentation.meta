@@ -1,12 +1,17 @@
 Edge Lab Reference Environment
 ==============================
 
+Assumptions:
+* the leader node have internet access for downloading `containerd` and `k3s` binaries
+* all nodes have have internet access for downloading containers
+* `kubectl` and `drpcli` has been installed on client system
 
-
-Linode Cloud Test
+Setup K3s Cluster
 -----------------
 
-1. you need to install Terraform
-1. `cp terraform.tfvars.reference terraform.tfvars`
-1. add your Linode API Token and update prefix as needed
-1. `terraform apply`
+* make sure that you `export RS_ENDPOINT` to your endpoint
+* install the `edgelab` content pack
+  * from `digitalrebar\` use `drpcli contents bundle edgelab.yaml && drpcli contents upload edgelab.yaml`
+* select the nodes for installation and apply the `k3s-install` workflow
+* wait for workflow to complete on leader
+* use `drpcli profiles get cluster01 param  k3s/admin-conf --decode > admin.conf`
