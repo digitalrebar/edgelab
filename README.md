@@ -16,6 +16,17 @@ It is an inexpensive multi-node environment to serve as a development platform f
 
 Note: we're not trying to define "what is edge" here!  You're free to leverage the designs and automation in anyway that fits your infrastructure needs.
 
+Network Architecture
+----
+
+The Edge Lab is designed to operate within an isolated physical network that uses the management node (RPi #0) as an internet gateway.  RPi #0 must have access to Wifi with internet access to to forward internet requests from the nodes.  This design ensures consistent and performant networking within the cluster.  It also reduces the risk of specialized lab activity, such as DHCP and network booting, from interfering with other systems.
+
+In this configuration, the API of the management system will be accessible via the Wifi interface for remote operation.  Once the Wifi configuration is complete via terminal or keyboard, no other direct connection to the lab is required.
+
+![Edge Lab Network Architecture](images/architecture.png)
+
+Note: RPi has no out of band management capabilities.  Resets will rely on using the Digital Rebar Runner soft reboot or a manual power reset.  For this reason, ALL Edge Lab configurations will NOT rely or require out of band management APIs.
+
 Participating
 -----
 
@@ -45,14 +56,3 @@ Audience
 Edge Lab is designed for technology professionals who are experienced with building operational environments.
 
 As a lab, it is expected to be deployed on desktop for short to mid term project work.  It should work equally well at home, conference and office environments where Wifi is managed by simple password requirements without a proxy or interstitial page (e.g. coffee shops and airplane). 
-
-Network Architecture
-----
-
-The Edge Lab is designed to operate within an isolated physical network that uses the management node (RPi #0) as an internet gateway.  RPi #0 must have access to Wifi with internet access since it will be configured to forward internet requests from the nodes.  This design ensures consistent and performant networking within the cluster.  It also reduces the risk of specialized lab activity, such as DHCP and network booting, from interfering with other systems.
-
-In this configuration, the API of the management system will be accessible via the Wifi interface for remote operation.  Once the Wifi configuration is complete via terminal or keyboard, no other direct connection to the lab is required.
-
-![Edge Lab Network Architecture](images/architecture.png)
-
-Note: There are no out of band management capabilities.  Resets will rely on using the Digital Rebar Runner soft reboot or a manual power reset.  For this reason, ALL Edge Lab configurations will NOT rely or require out of band management APIs.
