@@ -6,7 +6,7 @@ Return to [Edge Lab Overview](README.md) or [Assembly](assembly.md).
 
 This page explains how to build and install the Edge Lab.  Before starting, please acquire all the required items from the [Edge Lab Bill of Materials](bill_of_materials.md).
 
-**Follow (assembly steps)[assembly.md] first!**
+**Follow [assembly steps](assembly.md) first!**
 
 Bootstrapping
 -----------------
@@ -45,6 +45,9 @@ You will only need the USB Keyboard and HDMI monitor during the initial bootstra
 
 Bootstrapping is complete!
 
-Clients run In-Memory O/S
----------------------------------
+Fast Reset: Clients run In-Memory O/S
+-------------------------
+
 The non-server RPis are running in-memory operating systems so no configuration is saved to the local system.  You can reset the entire environment by simply resetting the power on the clients.
+
+Depending on your development approach, you may want to also delete the associated machines, profiles and reservations from Digital Rebar.
