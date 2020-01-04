@@ -47,7 +47,7 @@ Required Items
 Suggested Items
 1. RPi Standoff Posts [2 @ $6/20-pack from [Amazon](https://www.amazon.com/gp/product/B0721SP83Q/ref=ox_sc_act_title_8?smid=A3OWUO30LQJ1NE&psc=1)]
 
-Cloudlet Case (approx $450)
+USBC Power and Cloudlet Case (approx $450)
 ----
 
 ![Cloudlet Case Picture](images/cloudlet-case.jpg)
