@@ -1,30 +1,32 @@
 Edge Lab (edgelab.digital)
 ============
 
-Welcome to the journey into the Edge Infrastructure community!
+***TL;DR: [four RPis](bill_of_materials.md) self-building an autonomous PXE-boot cluster in 15 minutes.***
 
-This site is primarily documentation that describes the Edge Lab requirements, usage information, engineering, and community actions needed to bring Edge Lab to life.
+Welcome to a great place to start you journey into Edge Infrastructure!
+
+This reference architecture describes the requirements, usage, engineering, and community actions needed to bring Edge Lab to life.
 
 What is Edge Lab?
 -----
 
-It is an inexpensive multi-node environment to serve as a development platform the edge use cases. The system has completely automated operation to practice the zero-touch remote operation and basic infrastructure as code (IaC) capabilities required for real environments,
+It is an inexpensive multi-node environment to serve as a development platform the edge use cases. The design includes completely automated operation to practice the zero-touch remote operation and basic infrastructure as code (IaC) capabilities required for real environments,
 
 Note: we're not trying to define "what is edge" here!  You're free to leverage the designs and automation in anyway that fits your infrastructure needs.
 
 Participating
 -----
 
-The Edge Lab an open source community project being organized by RackN under the APLv2 parts of the Digital Rebar project.   Everyone is welcome to use and contribute to the project.
+The Edge Lab is an open source reference architecture in the Digital Rebar Platform (DRP) ecosystem.   Everyone is welcome to use and contribute to the APLv2 documentation here and supporting [DRP ecosystem catalog](https://github.com/digitalrebar/provision-content).
 
-Until there is a dedicated project liaison, questions should be addressed to [eng@rackn.com](mailto:eng@rackn.com) or posted on the #community channel at [rackn.slack.com](http://rackn.com/support/slack).
+Until there is a dedicated Edge Lab channel, questions should be addressed to [RackN Edge Lab team](mailto:edgelab@rackn.com) or posted on the Digital Rebar #community channel at [rackn.slack.com](http://rackn.com/support/slack).
 
 Multi-Vendor / Portable Resource
 ----
 
-The Edge Lab is a multi-contributor platform where different projects and vendors can work to build different operational stacks. Each is available in a modular way so users can quickly assemble a usable lab.
+The Edge Lab is a multi-contributor platform where different projects and vendors can work to build integrated operational stacks. By building components in a modular way so users can quickly assemble a functional lab.
 
-This website provides links to the necessary resources.  Edge Lab is a multi-component system, this site is *not* a code collection point.
+The Edge Lab site is a multi-component reference architecture; consequently, this site is *not* a code collection point.
 
 The initial target for the Edge Lab is as a [k3s cluster](https://k3s.io/) managed by [Digital Rebar](rebar.digital).
 
