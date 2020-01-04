@@ -13,7 +13,7 @@ Video Tutorial (35 min)
 
 [![Video Tutorial](https://i9.ytimg.com/vi/Zb6_HRZxsIo/mq3.jpg?sqp=CLK5xPAF&rs=AOn4CLDT0G12hzlgYW1NAfu0PRPJ3H7d3w)](https://youtu.be/Zb6_HRZxsIo)
 
-[Video](https://i9.ytimg.com/vi/Zb6_HRZxsIo/) includes a complete k3s install.
+[Video](https://youtu.be/Zb6_HRZxsIo) includes a complete k3s install.
 
 Bootstrapping
 -----------------
