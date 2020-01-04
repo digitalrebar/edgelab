@@ -8,7 +8,12 @@ This page explains how to build and install the Edge Lab.  Before starting, plea
 
 **Follow [assembly steps](assembly.md) first!**
 
-Check out the 35 min [![Video Tutorial](https://i9.ytimg.com/vi/Zb6_HRZxsIo/mq3.jpg?sqp=CLK5xPAF&rs=AOn4CLDT0G12hzlgYW1NAfu0PRPJ3H7d3w)](https://youtu.be/Zb6_HRZxsIo) of the bootstrap process which includes a k3s install.
+Video Tutorial (35 min)
+-----
+
+[![Video Tutorial](https://i9.ytimg.com/vi/Zb6_HRZxsIo/mq3.jpg?sqp=CLK5xPAF&rs=AOn4CLDT0G12hzlgYW1NAfu0PRPJ3H7d3w)](https://youtu.be/Zb6_HRZxsIo)
+
+[Video](https://i9.ytimg.com/vi/Zb6_HRZxsIo/) includes a complete k3s install.
 
 Bootstrapping
 -----------------
@@ -53,3 +58,8 @@ Fast Reset: Clients run In-Memory O/S
 The non-server RPis are running in-memory operating systems so no configuration is saved to the local system.  You can reset the entire environment by simply resetting the power on the clients.
 
 Depending on your development approach, you may want to also delete the associated machines, profiles and reservations from Digital Rebar.
+
+Kubernetes (k3s) Install
+-------------------
+
+RackN [Digital Rebar Edge Lab Content](https://github.com/digitalrebar/provision-content/blob/edgelab/edge-lab/._Documentation.meta) includes simple instructions for installing k3s into your Edge Lab cluster.
