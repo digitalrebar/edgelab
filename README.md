@@ -7,7 +7,7 @@ Welcome to a great place to start you journey into Edge Infrastructure!
 
 This open reference architecture describes the requirements, usage, engineering, and community actions needed to bring your personal Edge Lab to life.
 
-Ready to go?  Order [these items](bill_of_materials.md) and follow [these directions](assembly.md).
+Ready to go?  Order [these items](bill_of_materials.md) and follow [these directions](assembly.md) or watch the [bootstrap video](https://youtu.be/Zb6_HRZxsIo).
 
 What is Edge Lab?
 -----
@@ -23,7 +23,7 @@ The Edge Lab is designed to operate within an isolated physical network that use
 
 In this configuration, the API of the management system will be accessible via the Wifi interface for remote operation.  Once the Wifi configuration is complete via terminal or keyboard, no other direct connection to the lab is required.
 
-![Edge Lab Network Architecture](images/architecture.png)
+[![Edge Lab Network Architecture (click for video)](images/architecture.png)](https://youtu.be/Zb6_HRZxsIo)
 
 Note: RPi has no out of band management capabilities.  Resets will rely on using the Digital Rebar Runner soft reboot or a manual power reset.  For this reason, ALL Edge Lab configurations will NOT rely or require out of band management APIs.
 

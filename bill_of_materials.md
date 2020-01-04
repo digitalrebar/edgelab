@@ -49,9 +49,9 @@ Suggested Items
 Cloudlet Case (approx $450)
 ----
 
-This approach minimizes the amount of cables by using power over ethernet.
-
 ![Cloudlet Case Picture](images/cloudlet-case.jpg)
+
+This approach scales out to 8 nodes and is visually appealing as a desktop cluster.
 
 Required Items
 1. The common items listed above
