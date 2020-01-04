@@ -28,7 +28,7 @@ It is OK if you only have one card, you'll just need to boot the client RPi mach
 Assembly
 ------------
 
-Like pictures?  Use the [visual assembly](images/assembly_visual.md) instructions.
+Like pictures?  Use the [visual assembly](assembly_visual.md) instructions.
 
 NOTE: *DO NOT POWER THE SYSTEMS UNTIL INSTRUCTED!*
 
