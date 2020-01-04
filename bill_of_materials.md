@@ -51,7 +51,7 @@ Cloudlet Case (approx $450)
 
 This approach minimizes the amount of cables by using power over ethernet.
 
-![Cloudlet Case Picture](cloudlet-case.jpg)
+![Cloudlet Case Picture](images/cloudlet-case.jpg)
 
 Required Items
 1. The common items listed above
@@ -61,3 +61,8 @@ Required Items
 
 Suggested Items
 1. Cloudlet CASE (holds 8 RPi) [1 @ $60/each from [Amazon](https://www.amazon.com/gp/product/B07D5NM9ZG/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1)]
+
+Next Step
+---
+
+[Cluster Assembly](assembly.md)!

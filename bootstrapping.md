@@ -1,7 +1,8 @@
 
-Edge Lab Bring Up - RPi
+Edge Lab Bring Up - RPi Version
 ==================
-Return to [Edge Lab Overview](README.md) 
+
+Return to [Edge Lab Overview](README.md) or [Assembly](assembly.md).
 
 This page explains how to build and install the Edge Lab.  Before starting, please acquire all the required items from the [Edge Lab Bill of Materials](bill_of_materials.md).
 

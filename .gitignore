@@ -2,6 +2,7 @@
 *.tfstate.backup
 *.tfvars
 .terraform
+images/notused
 
 digitalrebar/edgelab.yaml
 digitalrebar/digitalrebar.yaml

@@ -5,12 +5,14 @@ Edge Lab (edgelab.digital)
 
 Welcome to a great place to start you journey into Edge Infrastructure!
 
-This open reference architecture describes the requirements, usage, engineering, and community actions needed to bring Edge Lab to life.
+This open reference architecture describes the requirements, usage, engineering, and community actions needed to bring your personal Edge Lab to life.
+
+Ready to go?  Order [these items](bill_of_materials.md) and follow [these directions](assembly.md).
 
 What is Edge Lab?
 -----
 
-It is an inexpensive multi-node environment to serve as a development platform for edge use cases. The design includes completely automated operation to practice the zero-touch remote operation and basic infrastructure as code (IaC) capabilities required for real environments,
+It is an inexpensive multi-node environment to serve as a development platform for edge use cases. The design includes completely automated operation to practice the zero-touch remote operation and basic infrastructure as code (IaC) capabilities required for real environments. While we use RPi as a base reference, it is NOT RPi specific.
 
 Note: we're not trying to define "what is edge" here!  You're free to leverage the designs and automation in anyway that fits your infrastructure needs.
 
@@ -35,7 +37,7 @@ Requirements
 
 The minimum configuration for the Edge Lab is four Rasberry Pi (RPi 4B) cluster described under the [Bill of Materials](bill_of_materials.md) and available for under $500 US.  Non-RPi and Cloud configurations will also work!
 
-If you have the materials available, please review the [Bootstrapping Guide](bootstrapping.md) page for instructions on how to configure the environment.
+If you have the [materials](bill_of_materials.md) available and [assembled](assembly.md), please review the [Bootstrapping Guide](bootstrapping.md) page for instructions on how to configure the environment.
 
 Audience
 ----
@@ -44,7 +46,6 @@ Edge Lab is designed for technology professionals who are experienced with build
 
 As a lab, it is expected to be deployed on desktop for short to mid term project work.  It should work equally well at home, conference and office environments where Wifi is managed by simple password requirements without a proxy or interstitial page (e.g. coffee shops and airplane). 
 
-
 Network Architecture
 ----
 
@@ -52,6 +53,6 @@ The Edge Lab is designed to operate within an isolated physical network that use
 
 In this configuration, the API of the management system will be accessible via the Wifi interface for remote operation.  Once the Wifi configuration is complete via terminal or keyboard, no other direct connection to the lab is required.
 
-![Edge Lab Network Architecture](architecture.png)
+![Edge Lab Network Architecture](images/architecture.png)
 
 Note: There are no out of band management capabilities.  Resets will rely on using the Digital Rebar Runner soft reboot or a manual power reset.  For this reason, ALL Edge Lab configurations will NOT rely or require out of band management APIs.
