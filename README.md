@@ -5,12 +5,12 @@ Edge Lab (edgelab.digital)
 
 Welcome to a great place to start you journey into Edge Infrastructure!
 
-This reference architecture describes the requirements, usage, engineering, and community actions needed to bring Edge Lab to life.
+This open reference architecture describes the requirements, usage, engineering, and community actions needed to bring Edge Lab to life.
 
 What is Edge Lab?
 -----
 
-It is an inexpensive multi-node environment to serve as a development platform the edge use cases. The design includes completely automated operation to practice the zero-touch remote operation and basic infrastructure as code (IaC) capabilities required for real environments,
+It is an inexpensive multi-node environment to serve as a development platform for edge use cases. The design includes completely automated operation to practice the zero-touch remote operation and basic infrastructure as code (IaC) capabilities required for real environments,
 
 Note: we're not trying to define "what is edge" here!  You're free to leverage the designs and automation in anyway that fits your infrastructure needs.
 
