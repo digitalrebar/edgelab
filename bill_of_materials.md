@@ -14,6 +14,7 @@ Once you have acquired the materials, consult the [Bootstrapping Guide](bootstra
 NOTES:
 * The RPi 4B with 4GB RAM is the required minimum specification.  The Edge Lab design requires features of this model and in memory boot plus application requires 4 GB of RAM.
 * The RPi 4B drAmazon 3.4 watts so plan for 5 watts per RPi when designing USB or PoE power.
+* It is possible to combine Cloudcase and PoE choices.
 * Amazon links provided for reference
 
 Common Items
