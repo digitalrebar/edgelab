@@ -28,8 +28,15 @@ You will only need the USB Keyboard and HDMI monitor during the initial bootstra
    1. This may take several minutes for the initial bring up.  During
    2. During this time, the instructions on the SD Cards updating the BIOS and setting the systems to 64bit mode.
    3. There may not be any HDMI output during much of this initial process.
-5. When the HDMI monitor shows a login prompt, login
-   1. credentials are root/r0cketsk8ts
+5. Get a command Prompt (two options)
+     1. Credentials are root/r0cketsk8ts
+     1. Via Monitor & Keyboard:
+        1.When the HDMI monitor shows a login prompt, login
+     1. Via IP Network:
+        1. Attach a wired network connection from your client to the switch
+        1. Configure your system to have a static IP (e.g.: 10.3.14.2 subnet 255.255.255.0)
+        1. Ping test until the system is available
+        1. On switch network, SSH to root@10.3.14.1
 6. Run the start-up script on the host with your Wifi information.
    1. The command is `./start-up [Wifi SSID] [Wifi Password]`
    2. It's normal for the initial command to show "cannot connect" while the Wifi is configured
