@@ -8,12 +8,12 @@ This page explains how to build and install the Edge Lab.  Before starting, plea
 
 **Follow [assembly steps](assembly.md) first!**
 
-Video Tutorial (35 min)
+Video Tutorials (35 min)
 -----
 
-[![Video Tutorial](https://i9.ytimg.com/vi/Zb6_HRZxsIo/mq3.jpg?sqp=CLK5xPAF&rs=AOn4CLDT0G12hzlgYW1NAfu0PRPJ3H7d3w)](https://youtu.be/Zb6_HRZxsIo)
+[![Video Tutorial](images/edgelab-videos.png)](https://youtu.be/Zb6_HRZxsIo)
 
-[Video](https://youtu.be/Zb6_HRZxsIo) includes a complete k3s install.
+[Video Channel](https://youtu.be/Zb6_HRZxsIo) includes multiple install patterns and a complete k3s install.
 
 Bootstrapping
 -----------------
