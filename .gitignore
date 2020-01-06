@@ -8,3 +8,6 @@ digitalrebar/edgelab.yaml
 digitalrebar/digitalrebar.yaml
 
 admin.conf
+
+rpi-client-v1.*.*.img.xz
+rpi-server-v1.*.*.img.xz
