@@ -49,13 +49,6 @@ You will only need the USB Keyboard and HDMI monitor during the initial bootstra
    4. The RackN portal is connecting LOCALLY to RPi #0 via the Wifi network
    5. The other RPis will automatically PXE boot and register to Digital Rebar.
    6. Watch for machine registration from the "Machines" page
-8. SSH to RPi #0 to generate an keypair for access to the other RPis
-   1. SSH to RPi #0: `ssh root@[RPi #0 Address]` with `r0cketsk8ts` password.
-   2. type `ssh-keygen` and hit enter for all the prompts
-   3. copy the public key using `cat ~/.ssh/id_rsa.pub` 
-   4. Install your public key in Digital Rebar
-      1. Shortcut: use the "Add Key" button under "Info & Preferences" to have the public key automatically installed during machine discovery.
-      2. See [Add SSH Keys](https://provision.readthedocs.io/en/latest/doc/faq-troubleshooting.html#add-ssh-keys-to-authorized-keys) in the [Digital Rebar Documentation](https://provision.readthedocs.io)
 
 Bootstrapping is complete!
 
