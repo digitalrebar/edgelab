@@ -40,7 +40,7 @@ You will only need the USB Keyboard and HDMI monitor during the initial bootstra
 1. Run the start-up script on the host with your Wifi information.
    1. The command is `./start-up [Wifi SSID] [Wifi Password]`
    1. It's normal for the initial command to show "cannot connect" while the Wifi is configured
-   1. If the command fails, simply try a second time
+   1. If the command fails, simply try a second or third time.  Script success will show API JSON responses from DRP.
    1. At the end of the process, the Wifi IP address of RPi #0 will be shown
 1. Use the Wifi IP address to access Digital Rebar running on RPi #0
    1. visit `https://[RPi #0 Address]:8092` to access Digital Rebar
@@ -49,21 +49,24 @@ You will only need the USB Keyboard and HDMI monitor during the initial bootstra
    1. The RackN portal is connecting LOCALLY to RPi #0 via the Wifi network
    1. The other RPis will automatically PXE boot and register to Digital Rebar.
    1. Watch for machine registration from the "Machines" page
-8. SSH to RPi #0 to generate an keypair for access to the other RPis
-   1. SSH to RPi #0: `ssh root@[RPi #0 Address]` with `r0cketsk8ts` password.
-   1. type `ssh-keygen` and hit enter for all the prompts
-   1. copy the public key using `cat ~/.ssh/id_rsa.pub` 
-   1. Install your public key in Digital Rebar
+1. Allow Self-Boostrap to Finish
+   1. Automatically downloads discovery o/s
+   1. Automatically sets DRP configuration
+   1. Automatically creates Edge Lab Subnet with specialized RPi values
+   1. Automatically generates an keypair for access to the other RPis and installs it in global profile
+   1. Automatically locks the machine in DRP to prevent accidental changes
+1. Suggestioned step: Install your public key in Digital Rebar
       1. Shortcut: use the "Add Key" button under "Info & Preferences" to have the public key automatically installed during machine discovery.
       2. See [Add SSH Keys](https://provision.readthedocs.io/en/latest/doc/faq-troubleshooting.html#add-ssh-keys-to-authorized-keys) in the [Digital Rebar Documentation](https://provision.readthedocs.io)
-   1. (recommended) Add your public key (`~/.ssh/id_rsa.pub`) to the RPi #0 `~/.ssh/authorized_keys` file.
 
 Bootstrapping is complete!
 
 Fast Reset: Clients run In-Memory O/S
 -------------------------
 
-The non-server RPis are running in-memory operating systems so no configuration is saved to the local system.  You can reset the entire environment by simply resetting the power on the clients.
+The non-server RPis are running in-memory operating systems so no configuration is saved to the local system.  You can reset the entire environment by:
+1. Software API: running the `edgelab-reboot-to-discover` workflow on machines to reboot
+1. Mechanical: resetting physical power on the clients.
 
 Depending on your development approach, you may want to also delete the associated machines, profiles and reservations from Digital Rebar.
 
