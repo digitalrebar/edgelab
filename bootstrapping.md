@@ -73,4 +73,4 @@ Depending on your development approach, you may want to also delete the associat
 Kubernetes (k3s) Install
 -------------------
 
-RackN [Digital Rebar Edge Lab Content](https://github.com/digitalrebar/provision-content/blob/v4/edge-lab/._Documentation.meta) includes simple instructions for installing k3s into your Edge Lab cluster.
+RackN [Digital Rebar Edge Lab Content]( https://provision.readthedocs.io/en/latest/doc/content-packages/edge-lab.html) includes simple instructions for installing k3s into your Edge Lab cluster.

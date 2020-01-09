@@ -32,6 +32,10 @@ variable "cluster_prefix" {
   type      = string
 }
 
+variable "cluster_tag" {
+  type      = string
+}
+
 provider "linode" {
   token     = var.linode_token
 }
@@ -42,13 +46,13 @@ resource "linode_instance" "edgelab_controller" {
   region    = var.edgelab_region
   type      = var.edgelab_type
   root_pass = var.edgelab_password
+  tags      = [ "${var.cluster_tag}" ]
 
   stackscript_id = "604895"
   stackscript_data = {
     "drp_version" = "tip"
     "drp_password" = var.edgelab_password
     "drp_id" = var.edgelab_label
-    "drp_bootstrap" = "bootstrap"
   }
 }
 
@@ -58,6 +62,7 @@ resource "linode_instance" "edgelab_worker" {
   region    = var.edgelab_region
   type      = var.edgelab_type
   root_pass = var.edgelab_password
+  tags      = [ "${var.cluster_tag}" ]
   count     = var.edgelab_count
 
   stackscript_id = "548252"
