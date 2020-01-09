@@ -41,7 +41,7 @@ The Edge Lab is a multi-contributor platform where different projects and vendor
 
 The Edge Lab site is a multi-component reference architecture; consequently, this site is *not* a code collection point.
 
-The initial target for the Edge Lab is as a [k3s cluster](https://k3s.io/) managed by [Digital Rebar](rebar.digital).
+The initial target for the Edge Lab is as a [k3s cluster](https://k3s.io/) managed by [Digital Rebar](https://rebar.digital).
 
 Requirements
 ---
