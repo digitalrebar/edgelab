@@ -36,7 +36,7 @@ network:
           password: "${PASSWORD}"
 EOF
 
-echo "Applying networking configuraiton...."
+echo "Applying networking configuration...."
 netplan apply
 
 COUNT=0
