@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Copyright RackN 2020
+# License APLv2
+# Version 1.2
 
 SSID=$1
 PASSWORD=$2
