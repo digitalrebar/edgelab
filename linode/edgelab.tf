@@ -48,11 +48,13 @@ resource "linode_instance" "edgelab_controller" {
   root_pass = var.edgelab_password
   tags      = [ "${var.cluster_tag}" ]
 
-  stackscript_id = "604895"
+  stackscript_id = "626699"
   stackscript_data = {
     "drp_version" = "tip"
     "drp_password" = var.edgelab_password
     "drp_id" = var.edgelab_label
+    "initial_workflow" = "edge-lab-bootstrap"
+    "initial_contents" = "drp-community-content, task-library, edge-lab"
   }
 }
 
