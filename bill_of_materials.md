@@ -35,7 +35,7 @@ See lists below for power supplies.
 Simple Stack with Power over Ethernet (PoE, approx $500)
 ----
 
-[Picture Pending]
+![Yahboom Case Picture](images/yahboom-case.jpg)
 
 This approach minimizes the amount of cables by using power over ethernet.
 
@@ -44,8 +44,10 @@ Required Items
 1. PoE Gigabit Ethernet Switch (5+ ports) [1 @ $58/each from [Amazon](https://smile.amazon.com/NETGEAR-Gigabit-Ethernet-Unmanaged-Desktop/dp/B01MRO4M73/ref=sr_1_2_sspa?crid=8JE1A74MSIIB&keywords=poe%2Bswitch%2B8%2Bport&qid=1578071369&s=electronics&sprefix=poe%2Bswitch%2Celectronics%2C173&sr=1-2-spons&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExTTZXMzZJQ0RVSVdXJmVuY3J5cHRlZElkPUEwMzMzNjUzMThDTkVTT09HTkRKSiZlbmNyeXB0ZWRBZElkPUEwNzYyNDAxMkY4QVdHT0lIMVYxRyZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU&th=1)]
 1. PoE HAT for RPi [4 @ $30/each from [Amazon](https://smile.amazon.com/dp/B07GR9XQJH?psc=1&pf_rd_p=d920f245-16d7-4d66-8ff3-66ebfa3d00fd&pf_rd_r=Z8Y2F7X2CB4ZRX9Y6WET&pd_rd_wg=sFlQw&pd_rd_i=B07GR9XQJH&pd_rd_w=mUNHk&pd_rd_r=9201e2db-2884-43d8-b329-25b49bbf8780&ref_=pd_luc_rh_crh_rh_sbs_sem_02_01_t_img_lh)]
 
-Suggested Items
-1. RPi Standoff Posts [2 @ $6/20-pack from [Amazon](https://smile.amazon.com/gp/product/B0721SP83Q/ref=ox_sc_act_title_8?smid=A3OWUO30LQJ1NE&psc=1)]
+Suggested Case Options (choose EITHER)
+1. Yahboom Raspberry Pi Cluster Case [1 @ $21/6-layers from [Amazon](https://smile.amazon.com/gp/product/B07K72STFB/ref=ox_sc_act_title_8?smid=A3OWUO30LQJ1NE&psc=1)]
+1. iUniker Raspberry Pi 4 Cluster Case with Fans [1 @ $25/4-layers from [Amazon](https://smile.amazon.com/gp/product/B07CTG5N3V/ref=ox_sc_act_title_8?smid=A3OWUO30LQJ1NE&psc=1)]
+
 
 USBC Power and Cloudlet Case (approx $450)
 ----
