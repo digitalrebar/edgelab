@@ -64,7 +64,7 @@ echo "Check for local install files before using Wifi"
 if curl --output /dev/null --silent --head --fail "$LOCALBASE/files/bootstrap/install.sh"; then
   echo "Using Local Install Files from $LOCALBASE"
   curl -fsSL $LOCALBASE/files/bootstrap/dr-provision.zip -o dr-provision.zip
-  curl -fsSL $LOCALBASE/files/bootstrap/install.sh | bash -s -- --start-runner --systemd --startup --bootstrap --zip-file=dr-provision.zip install
+  curl -fsSL $LOCALBASE/files/bootstrap/install.sh | bash -s -- --start-runner --systemd --startup --bootstrap --drp-version=tip --zip-file=dr-provision.zip install
   echo "Upload ISOs from $LOCALBASE"
   for iso in sledgehammer-9b5276ac5826520829aa73c149fe672fe2363656.arm64.tar sledgehammer-9b5276ac5826520829aa73c149fe672fe2363656.rpi4.tar sledgehammer-c7305a9ba2c6b12351530c4a9021fd5e07ef1ce1.amd64.tar; do
     drpcli isos upload $LOCALBASE/isos/$iso to $iso
