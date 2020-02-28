@@ -26,7 +26,8 @@ for f in k3s helm; do
     echo "Found $f, uploading"
     drpcli files upload $f as "$f/$f"
   else
-    echo "No $f, skipping"
+    drpcli files upload http://10.3.14.1:8091/files/$f/$f as "$f/$f" || true
+    echo "No $f, trying to download from Edge Lab on 10.3.14.1"
   fi
 done
 
