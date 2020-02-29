@@ -71,7 +71,7 @@ resource "linode_instance" "edgelab_worker" {
   stackscript_data = {
       "drp_ip" = linode_instance.edgelab_controller.ip_address
       "drp_port" = "8091"
-      "open_ports" = "22 8092 8091 2379 2380 6443 10250"
+      "open_ports" = "22 80 443 8080 8092 8091 2379 2380 6443 10250"
   }
 }
 
