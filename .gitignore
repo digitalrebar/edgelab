@@ -11,3 +11,7 @@ admin.conf
 
 rpi-client-v1.*.*.img.xz
 rpi-server-v1.*.*.img.xz
+
+k3s
+helm
+rackn-catalog.json
