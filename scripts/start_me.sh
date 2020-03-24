@@ -66,7 +66,7 @@ if curl --output /dev/null --silent --head --fail "$LOCALBASE/files/bootstrap/in
   curl -fsSL $LOCALBASE/files/bootstrap/dr-provision.zip -o dr-provision.zip
   curl -fsSL $LOCALBASE/files/bootstrap/install.sh | bash -s -- --start-runner --systemd --startup --bootstrap --drp-version=tip --zip-file=dr-provision.zip install
   echo "Upload ISOs from $LOCALBASE"
-  for iso in sledgehammer-9b5276ac5826520829aa73c149fe672fe2363656.arm64.tar sledgehammer-9b5276ac5826520829aa73c149fe672fe2363656.rpi4.tar sledgehammer-c7305a9ba2c6b12351530c4a9021fd5e07ef1ce1.amd64.tar; do
+  for iso in sledgehammer-9b5276ac5826520829aa73c149fe672fe2363656.arm64.tar sledgehammer-9b5276ac5826520829aa73c149fe672fe2363656.rpi4.tar sledgehammer-e21d2b7f079dfcbd2952dbc79d09a793cd8fe7da.amd64.tar; do
     drpcli isos upload $LOCALBASE/isos/$iso to $iso
   done
   echo "Upload Extras from $LOCALBASE"
