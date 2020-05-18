@@ -1,4 +1,4 @@
-Edge Lab (EdgeLab.digital) & Desktop DC (DesktopDC.diigtal
+Edge Lab (EdgeLab.digital)
 ============
 
 ***TL;DR: [four RPis](bill_of_materials.md) self-building an autonomous PXE-boot cluster in 15 minutes.***
