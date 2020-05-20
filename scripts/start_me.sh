@@ -64,13 +64,21 @@ echo "Check for local install files before using Wifi"
 if curl --output /dev/null --silent --head --fail "$LOCALBASE/files/bootstrap/install.sh"; then
   echo "Using Local Install Files from $LOCALBASE"
   curl -fsSL $LOCALBASE/files/bootstrap/dr-provision.zip -o dr-provision.zip
-  curl -fsSL $LOCALBASE/files/bootstrap/install.sh | bash -s -- --start-runner --systemd --startup --bootstrap --drp-version=tip --zip-file=dr-provision.zip install
+  curl -fsSL $LOCALBASE/files/bootstrap/install.sh | bash -s -- --start-runner --systemd --startup --bootstrap --drp-version=tip --zip-file=dr-provision.zip --ipaddr=10.3.14.1 install
   echo "Upload ISOs from $LOCALBASE"
-  for iso in sledgehammer-9b5276ac5826520829aa73c149fe672fe2363656.arm64.tar sledgehammer-9b5276ac5826520829aa73c149fe672fe2363656.rpi4.tar sledgehammer-c7305a9ba2c6b12351530c4a9021fd5e07ef1ce1.amd64.tar; do
+  for iso in sledgehammer-9b5276ac5826520829aa73c149fe672fe2363656.arm64.tar sledgehammer-9b5276ac5826520829aa73c149fe672fe2363656.rpi4.tar sledgehammer-e21d2b7f079dfcbd2952dbc79d09a793cd8fe7da.amd64.tar; do
     drpcli isos upload $LOCALBASE/isos/$iso to $iso
   done
   echo "Upload Extras from $LOCALBASE"
-  for file in k3s helm; do
+  for content in edge-lab.yaml task-library.yaml; do
+    if [[ "$(curl -fsSLk -o /dev/null -w %{http_code} $LOCALBASE/files/bootstrap/$content 2>/dev/null)" == "200" ]]; then
+      echo "uploading $content"
+      drpcli contents upload $LOCALBASE/files/bootstrap/$content
+    else
+      echo "did not find $content, skipping"
+    fi
+  done
+  for file in k3s-arm64 helm-arm64 k3s-amd6 helm-amd64; do
     if [[ "$(curl -fsSLk -o /dev/null -w %{http_code} $LOCALBASE/files/$file/$file 2>/dev/null)" == "200" ]]; then
       echo "uploading $file"
       drpcli files upload $LOCALBASE/files/$file/$file to $file/$file
@@ -80,8 +88,12 @@ if curl --output /dev/null --silent --head --fail "$LOCALBASE/files/bootstrap/in
   done
 else
   echo "Downloading and Installing latest DRP..."
-  curl -fsSL get.rebar.digital/tip | bash -s -- --start-runner --systemd --startup --bootstrap --drp-version=tip install
+  curl -fsSL get.rebar.digital/tip | bash -s -- --start-runner --systemd --startup --bootstrap --drp-version=tip --ipaddr=10.3.14.1 install
 fi
+
+echo "Installed DRP Version $(drpcli info get | jq -r .version)"
+
+drpcli catalog item install edge-lab --version=tip >/dev/null
 
 echo "Getting Edge-lab content"
 drpcli catalog item install edge-lab --version=tip >/dev/null

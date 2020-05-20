@@ -3,16 +3,16 @@ Edge Lab (EdgeLab.digital)
 
 ***TL;DR: [four RPis](bill_of_materials.md) self-building an autonomous PXE-boot cluster in 15 minutes.***
 
-Welcome to a great place to start you journey into Edge Infrastructure!
+Welcome to a great place to start your journey into Infrastructure and Edge Automation!
 
-This open reference architecture describes the requirements, usage, engineering, and community actions needed to bring your personal Edge Lab to life.
+This open reference architecture describes the requirements, usage, engineering, and community actions needed to bring your desktop data center, that we call "Edge Lab," to life.
 
 Ready to go?  Order [these items](bill_of_materials.md) and follow [these directions](assembly.md) or watch the [bootstrap video](https://youtu.be/Zb6_HRZxsIo).
 
 What is Edge Lab?
 -----
 
-It is an inexpensive multi-node environment to serve as a development platform for edge use cases. The design includes completely automated operation to practice the zero-touch remote operation and basic infrastructure as code (IaC) capabilities required for real environments. While we use RPi as a base reference, it is NOT RPi specific.
+A desktop data center that is an inexpensive multi-node environment to serve as a development platform for edge use cases. The design includes completely automated operation to practice the zero-touch remote operation and basic infrastructure as code (IaC) capabilities required for real environments. While we use RPi as a base reference, it is NOT RPi specific.
 
 Note: we're not trying to define "what is edge" here!  You're free to leverage the designs and automation in anyway that fits your infrastructure needs.
 
