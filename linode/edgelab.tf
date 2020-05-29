@@ -53,7 +53,7 @@ resource "linode_instance" "edgelab_controller" {
     "drp_version" = "tip"
     "drp_password" = var.edgelab_password
     "drp_id" = var.edgelab_label
-    "initial_workflow" = "edge-lab-bootstrap"
+    "initial_workflow" = "bootstrap-advanced"
     "initial_contents" = "drp-community-content, task-library, edge-lab"
   }
 }
@@ -71,7 +71,7 @@ resource "linode_instance" "edgelab_worker" {
   stackscript_data = {
       "drp_ip" = linode_instance.edgelab_controller.ip_address
       "drp_port" = "8091"
-      "open_ports" = "22 80 443 8080 8092 8091 2379 2380 6443 10250"
+      "open_ports" = "22 80 443 2049 8080 8092 8091 2379 2380 6443 10250"
   }
 }
 
