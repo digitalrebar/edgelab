@@ -2,7 +2,7 @@
 edgelab_label    = "edgelab"
 edgelab_password = "r0cketsk8ts"
 edgelab_region   = "us-central"
-edgelab_image    = "linode/centos7"
+edgelab_image    = "linode/centos8"
 edgelab_type     = "g6-standard-1"
 edgelab_count	 = "3"
 cluster_prefix   = "drp"
