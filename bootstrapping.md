@@ -19,7 +19,7 @@ Bootstrapping
 -----------------
 You will only need the USB Keyboard and HDMI monitor during the initial bootstrap.
 
-1. Confirm the [Server SD Card](https://s3-us-west-2.amazonaws.com/get.rebar.digital/edge-lab/rpi-server-v1.1.0.img.xz) is in RPi #0 (with the keyboard and hdmi connectors).
+1. Confirm the [Server SD Card](https://s3-us-west-2.amazonaws.com/get.rebar.digital/edge-lab/rpi-server-v1.2.0.img.xz) is in RPi #0 (with the keyboard and hdmi connectors).
 2. Confirm the [Client SD Cards](https://s3-us-west-2.amazonaws.com/get.rebar.digital/edge-lab/rpi-client-v1.0.0.img.xz) are inthe other RPi systems.
    1. If you only have one SD Card then you'll need to power the systems on one at a time after each one has been registered with Digital Rebar.
 1. Power on the systems including both the Network Switch and all RPis.
