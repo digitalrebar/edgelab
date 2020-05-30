@@ -27,13 +27,13 @@ touch /etc/cloud/cloud-init.disabled
 
 # Add wifi netplan piece.
 cat > /etc/netplan/20-netplan.yaml <<EOF
-network:        
-  version: 2    
+network:
+  version: 2
   renderer: networkd
-  wifis:        
-    wlan0:      
-      dhcp4: yes        
-      dhcp6: no 
+  wifis:
+    wlan0:
+      dhcp4: yes
+      dhcp6: no
       access-points:
         "${SSID}":
           password: "${PASSWORD}"
@@ -87,6 +87,16 @@ if curl --output /dev/null --silent --head --fail "$LOCALBASE/files/bootstrap/in
     fi
   done
 else
+  # download URL locations; overridable via ENV variables
+  URL_BASE=${URL_BASE:-"https://rebar-catalog.s3-us-west-2.amazonaws.com"}
+  URL_BASE_CONTENT=${URL_BASE_CONTENT:-"$URL_BASE/drp-community-content"}
+  DRP_CATALOG=${DRP_CATALOG:-"$URL_BASE/rackn-catalog.json"}
+
+  while ! curl -fsSL -o /dev/null $DRP_CATALOG ; do
+    echo "Failed to get catalog file."
+    sleep 4
+  done
+
   echo "Downloading and Installing latest DRP..."
   curl -fsSL get.rebar.digital/tip | bash -s -- --start-runner --systemd --startup --bootstrap --drp-version=tip --ipaddr=10.3.14.1 install
 fi
