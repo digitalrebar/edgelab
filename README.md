@@ -14,6 +14,8 @@ What is Edge Lab?
 
 A desktop data center that is an inexpensive multi-node environment to serve as a development platform for edge use cases. The design includes completely automated operation to practice the zero-touch remote operation and basic infrastructure as code (IaC) capabilities required for real environments. While we use RPi as a base reference, it is NOT RPi specific.
 
+To accelerate your learning, we've baked a lightweight Kubernetes, [k3s](https://k3s.io/), directly into the system.  Simply select machine(s) and choose the `k3s-install` workflow to build a fully functional container management system.
+
 Note: we're not trying to define "what is edge" here!  You're free to leverage the designs and automation in anyway that fits your infrastructure needs.
 
 Network Architecture

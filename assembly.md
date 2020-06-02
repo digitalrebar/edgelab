@@ -13,7 +13,7 @@ The Edge Lab uses Wifi for the cluster internet gateway.   Make sure you know yo
 
 You need a SD Card download utility to create two different type images.  We recommend [Balena.io Etcher](https://github.com/balena-io/etcher) which has as simple UX and works on multiple platforms.
 
-You'll need at least two 32 Gb SD Cards (four is recommended).   Since SD Cards look alike, consider marking each with a unique letter or number for reference.
+You'll need at four two 32 (or larger) Gb SD Cards.   Since SD Cards look alike, consider marking each with a unique letter or number for reference.
 
 This step takes some time, you can proceed with Assembly while you burn the cards.
 
@@ -23,10 +23,9 @@ This step takes some time, you can proceed with Assembly while you burn the card
 1. Burn one copy of the server image (`rpi-server`) to an SD Card.
 1. Burn copies of the client image (`rpi-client`) on your remaining SD Cards.
 
-It is OK if you only have one card, you'll just need to boot the client RPi machines sequentially instead of in parallel.
+While all machines need an SD card in the end, it is OK if you only burn one client card, you'll just need to boot the client RPi machines sequentially instead of in parallel.
 
-NOTE: If you are planning on do a full k3s install, you will need SD cards for your client machines as well.  They are used
-as container storage.
+NOTE: If you are planning on do a k3s install, you will need to leave SD cards in all machinesbecause they are used as container storage.
 
 Assembly
 ------------
@@ -45,10 +44,14 @@ NOTE: *DO NOT POWER THE SYSTEMS UNTIL INSTRUCTED!*
 1. Insert the SD Cards into the systems,
    1. Make sure to note which one has the server image.
 1. Wire the Network cables to the Network Switch
-    1. Order does not matter
-    1. If you are using PoE, make sure the RPi systems are plugged into the PoE ports.
- 1. Attach the mini-HDMI adapter to the server (RPi #0) card using HDMI port 0 (the one near the USBC connector.  Connect the HDMI port to a monitor.
- 1. Attach the USB Keyboard to the server (RPi #0) card using any of the four USB ports.
+   1. Order does not matter
+   1. If you are using PoE, make sure the RPi systems are plugged into the PoE ports.
+1. For Keyboard+Video Install
+   1. Attach the mini-HDMI adapter to the server (RPi #0) card using HDMI port 0 (the one near the USBC connector.  Connect the HDMI port to a monitor.
+   1. Attach the USB Keyboard to the server (RPi #0) card using any of the four USB ports.
+1. For Wired Network Install
+   1. Connect an ethernet from an open switch port to your PC or Laptop NIC.
+   1. Configure a static IP address in the 10.3.14.[2-10] range
 
 Time to Power On!
 ----

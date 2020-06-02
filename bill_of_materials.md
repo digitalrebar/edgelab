@@ -21,13 +21,16 @@ Common Items
 ----
 
 Required Items
-1. Raspberry Pi 4 Model B 2019 (4GB) Quad Core 64 Bit WiFi Bluetooth [4 @ $65/each from [Amazon](https://smile.amazon.com/Raspberry-Model-2019-Quad-Bluetooth/dp/B07TC2BK1X/ref=wl_mb_wl_huc_mrai_1_dp?ie=UTF8&pd_rd_i=B07TC2BK1X&pd_rd_r=R635T00HNVN2W0961XXB&pd_rd_w=q1GHd&pd_rd_wg=RXVTi&pf_rd_p=eef9c7bd-10f9-4dd2-8aa3-f83976b6a214&pf_rd_r=R635T00HNVN2W0961XXB)]
+1. Raspberry Pi 4 Model B 2019 (4GB or better) Quad Core 64 Bit WiFi Bluetooth [4 @ $65/each from [Amazon](https://smile.amazon.com/Raspberry-Model-2019-Quad-Bluetooth/dp/B07TC2BK1X/ref=wl_mb_wl_huc_mrai_1_dp?ie=UTF8&pd_rd_i=B07TC2BK1X&pd_rd_r=R635T00HNVN2W0961XXB&pd_rd_w=q1GHd&pd_rd_wg=RXVTi&pf_rd_p=eef9c7bd-10f9-4dd2-8aa3-f83976b6a214&pf_rd_r=R635T00HNVN2W0961XXB)]
 1. Micro SD Card (32+ Gb) [4 @ $7/each from [Amazon](https://smile.amazon.com/gp/product/B06XWN9Q99/ref=ppx_yo_dt_b_asin_title_o00_s02?ie=UTF8&psc=1)]
 1. Cat 6 Ethernet Cables [4 @ $9/5-pack from [Amazon](https://smile.amazon.com/gp/product/B01IQWGKQ6/ref=ppx_yo_dt_b_asin_title_o00_s01?ie=UTF8&psc=1)]
 1. Micro SD Card reader USB [1 @ $6/each from [Amazon](https://smile.amazon.com/Saicoo-USB3-0-Slots-Reader-Micro/dp/B00CMKS2DI/ref=sr_1_21?keywords=micro+sd+card+usb&qid=1576369082&s=electronics&sr=1-21)]
-1. Micro HDMI to HDMI Adapter Cable [1 @ $8/2-pack from [Amazon](https://smile.amazon.com/GANA-Adapter-Female-Action-Supported/dp/B07K21HSQX/ref=wl_mb_wl_huc_mrai_2_dp?ie=UTF8&pd_rd_i=B07K21HSQX&pd_rd_r=4Z67NWY585QSZTZFV9GF&pd_rd_w=9CP1x&pd_rd_wg=8fupg&pf_rd_p=eef9c7bd-10f9-4dd2-8aa3-f83976b6a214&pf_rd_r=4Z67NWY585QSZTZFV9GF)]
-1. HDMI Monitor (Bring your own)
-1. USB Keyboard (Bring your own)
+1. Recommended, optional
+   1. Micro HDMI to HDMI Adapter Cable [1 @ $8/2-pack from [Amazon](https://smile.amazon.com/GANA-Adapter-Female-Action-Supported/dp/B07K21HSQX/ref=wl_mb_wl_huc_mrai_2_dp?ie=UTF8&pd_rd_i=B07K21HSQX&pd_rd_r=4Z67NWY585QSZTZFV9GF&pd_rd_w=9CP1x&pd_rd_wg=8fupg&pf_rd_p=eef9c7bd-10f9-4dd2-8aa3-f83976b6a214&pf_rd_r=4Z67NWY585QSZTZFV9GF)]
+   1. HDMI Monitor (Bring your own)
+   1. USB Keyboard (Bring your own)
+
+Note: If you plan to store a lot of data or containers, consider purchasing larger or additional SD cards.  The k3s installation uses second partition of the rpi-client SD cards for local storage after PXE configuration.
 
 See lists below for power supplies.
 
