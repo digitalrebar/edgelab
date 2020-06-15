@@ -7,7 +7,7 @@ Welcome to a great place to start your journey into Infrastructure and Edge Auto
 
 This open reference architecture describes the requirements, usage, engineering, and community actions needed to bring your desktop data center, that we call "Edge Lab," to life.
 
-Ready to go?  Order [these items](bill_of_materials.md) and follow [these directions](assembly.md) or watch the [bootstrap video](https://youtu.be/Zb6_HRZxsIo).
+Ready to go?  Order [these items](bill_of_materials.md) and follow [these directions](assembly.md) or watch the [bootstrap video](https://youtu.be/--aYMb8SonU).
 
 What is Edge Lab?
 -----
@@ -16,7 +16,7 @@ A desktop data center that is an inexpensive multi-node environment to serve as 
 
 To accelerate your learning, we've baked a lightweight Kubernetes, [k3s](https://k3s.io/), directly into the system.  Simply select machine(s) and choose the `k3s-install` workflow to build a fully functional container management system.
 
-Note: we're not trying to define "what is edge" here!  You're free to leverage the designs and automation in anyway that fits your infrastructure needs.
+[Why Edge Lab? video](https://youtu.be/w2IcKH2leM0)
 
 Network Architecture
 ----
