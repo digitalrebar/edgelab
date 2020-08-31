@@ -19,7 +19,7 @@ This step takes some time, you can proceed with Assembly while you burn the card
 
 1. Download the two images:
   1. **Client**: https://s3-us-west-2.amazonaws.com/get.rebar.digital/edge-lab/rpi-client-v1.2.0.img.xz
-  1. **Server**: https://s3-us-west-2.amazonaws.com/get.rebar.digital/edge-lab/rpi-server-v1.3.0.img.xz
+  1. **Server**: https://s3-us-west-2.amazonaws.com/get.rebar.digital/edge-lab/rpi-server-v1.4.0.img.xz
 1. Burn one copy of the server image (`rpi-server`) to an SD Card.
 1. Burn copies of the client image (`rpi-client`) on your remaining SD Cards.
 
