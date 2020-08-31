@@ -18,7 +18,7 @@ You'll need at four two 32 (or larger) Gb SD Cards.   Since SD Cards look alike,
 This step takes some time, you can proceed with Assembly while you burn the cards.
 
 1. Download the two images:
-  1. **Client**: https://s3-us-west-2.amazonaws.com/get.rebar.digital/edge-lab/rpi-client-v1.1.0.img.xz
+  1. **Client**: https://s3-us-west-2.amazonaws.com/get.rebar.digital/edge-lab/rpi-client-v1.2.0.img.xz
   1. **Server**: https://s3-us-west-2.amazonaws.com/get.rebar.digital/edge-lab/rpi-server-v1.3.0.img.xz
 1. Burn one copy of the server image (`rpi-server`) to an SD Card.
 1. Burn copies of the client image (`rpi-client`) on your remaining SD Cards.
