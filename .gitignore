@@ -3,6 +3,7 @@
 *.tfvars
 .terraform
 images/notused
+.idea
 
 digitalrebar/edgelab.yaml
 digitalrebar/digitalrebar.yaml
