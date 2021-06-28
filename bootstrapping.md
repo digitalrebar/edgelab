@@ -43,7 +43,7 @@ You will only need the USB Keyboard and HDMI monitor during the initial bootstra
         1. Ping test until the system is available
         1. On switch network, SSH to root@10.3.14.1
 1. Run the start-up script on the host with your Wifi information.
-   1. The command is `./start-up [Wifi SSID] [Wifi Password]`
+   1. The command is `./start-me [Wifi SSID] [Wifi Password]`
    1. It's possible for the initial command to show "cannot connect" while the Wifi is configured. If the command fails, simply try a second or third time.  Script success will show API JSON responses from DRP.
    1. At the end of the process, the Wifi IP address of RPi #0 will be shown
    1. No additional command line steps are required.
